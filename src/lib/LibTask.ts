@@ -26,7 +26,21 @@ const  LibTask = {
       throw new Error('Error , getItems:' +err);
     }          
   },    
-  getTask :async function(id: number){
+  getItem :async function(id: number){
+    try {
+      const text = `
+      SELECT * FROM public."Task" where id = ${id}
+      `;
+      const client = LibPg.getClient();
+      const res = await client.query(text);
+      client.end();
+      const data = res.rows[0];
+//      console.log(data);
+      return data;      
+    } catch (err) {
+      console.error(err);
+      throw new Error('Error , getItem:' +err);
+    }    
   },
   addTask :async function(req: any){
     try {

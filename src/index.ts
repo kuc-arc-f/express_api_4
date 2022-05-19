@@ -10,6 +10,7 @@ const routes = require('./routes/index');
 import tasksRouter from './routes/tasks';
 import bookMarksRouter from './routes/book_marks';
 import bmCategoryRouter from './routes/bm_category';
+import todoRouter from './routes/todos';
 
 app.use(cors())
 app.use(express.json());
@@ -35,6 +36,7 @@ app.use('/', routes);
 app.use('/tasks', tasksRouter);
 app.use('/book_marks', bookMarksRouter);
 app.use('/bm_category', bmCategoryRouter);
+app.use('/todos', todoRouter);
 //
 app.get('/', (req: any, res: any) => {
   try {

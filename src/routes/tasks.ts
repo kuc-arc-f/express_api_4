@@ -15,7 +15,20 @@ router.get('/index', async function(req: any, res: any) {
     res.sendStatus(500);
   }
 });
-
+/******************************** 
+*  todos Show
+*********************************/
+router.get('/show/:id', async function(req: any, res: any) {
+  try {
+    console.log(req.params.id  );
+    const result = await LibTask.getItem(Number(req.params.id));
+    console.log(result);
+    res.json(result);
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }  
+});
 /*****************************
 Task -add
 ******************************/
@@ -29,5 +42,6 @@ router.post('/add', async function(req: any, res: any) {
     res.sendStatus(500);
   }
 });
+// getItem
 
 export default router;
