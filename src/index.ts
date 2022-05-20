@@ -11,6 +11,7 @@ import tasksRouter from './routes/tasks';
 import bookMarksRouter from './routes/book_marks';
 import bmCategoryRouter from './routes/bm_category';
 import todoRouter from './routes/todos';
+import memoRouter from './routes/memo';
 
 app.use(cors())
 app.use(express.json());
@@ -37,6 +38,7 @@ app.use('/tasks', tasksRouter);
 app.use('/book_marks', bookMarksRouter);
 app.use('/bm_category', bmCategoryRouter);
 app.use('/todos', todoRouter);
+app.use('/memo', memoRouter);
 //
 app.get('/', (req: any, res: any) => {
   try {
